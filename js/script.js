@@ -13,6 +13,7 @@ var app = new Vue (
             imageIndex:0
         },
         methods: {
+            
             nextImage: function(){
                 this.imageIndex++;
 
@@ -27,8 +28,15 @@ var app = new Vue (
                     this.imageIndex = this.images.length - 1;
                 }
 
-            }
-            
-        }
+            } 
+        }, 
+        mounted: function(){
+            setInterval(() => {
+                this.imageIndex++;
+                if(this.imageIndex == this.images.length){
+                    this.imageIndex = 0;
+                }
+              }, 2000);
+        }     
     }
 );

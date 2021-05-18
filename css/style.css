@@ -4,8 +4,14 @@
     padding:0;
 }
 #root{
-    display:flex;
-    height:100vh;
+    height:100vh;  
+}
+#root h1{
+    font-family: 'Pattaya', sans-serif;
+    text-align: center;
+    margin:30px;
+    color: rgb(58, 58, 248);
+    font-size: 40px;
 }
 .wrapper{
     position: relative;
