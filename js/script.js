@@ -10,33 +10,34 @@ var app = new Vue (
                 "https://www.miglioripuzzle.it/wp-content/uploads/2020/04/Puzzle-Paesaggi-Sicilia.jpg",
                 "https://www.saporieviaggi.com/wp-content/uploads/2018/04/cinque-terre.jpg"
             ],
-            imageIndex:0
+            imageIndex:0,
+            autoplay: ''
         },
-        methods: {
-            
-            nextImage: function(){
+        methods: {           
+            nextImage: function(){ 
+                clearInterval(this.autoplay);
                 this.imageIndex++;
-
                 if(this.imageIndex == this.images.length){
                     this.imageIndex = 0;
-                }
+                } 
             },
             prevImage: function(){
+                clearInterval(this.autoplay);
                 this.imageIndex--;
-
                 if(this.imageIndex == -1){
                     this.imageIndex = this.images.length - 1;
                 }
-
-            } 
+                
+            }
         }, 
         mounted: function(){
-            setInterval(() => {
+            this.autoplay = setInterval( () => {
                 this.imageIndex++;
                 if(this.imageIndex == this.images.length){
                     this.imageIndex = 0;
                 }
-              }, 2000);
+              },3000);
+             console.log(autoplay);
         }     
     }
 );
